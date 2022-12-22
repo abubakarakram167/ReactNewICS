@@ -6,6 +6,11 @@ import MainLayout from 'layout/MainLayout';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
+const ClientPage = Loadable(lazy(() => import('pages/client')));
+const DebtorPage = Loadable(lazy(() => import('pages/debtor')));
+const PaymentPage = Loadable(lazy(() => import('pages/payment')));
+const ReportsPage = Loadable(lazy(() => import('pages/reports')));
+const IntegrationPage = Loadable(lazy(() => import('pages/integrations')));
 
 // render - sample page
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/SamplePage')));
@@ -27,34 +32,25 @@ const MainRoutes = {
             element: <DashboardDefault />
         },
         {
-            path: 'color',
-            element: <Color />
+            path: 'client',
+            element: <ClientPage />
         },
         {
-            path: 'dashboard',
-            children: [
-                {
-                    path: 'default',
-                    element: <DashboardDefault />
-                }
-            ]
+            path: 'debtors',
+            element: <DebtorPage />
         },
         {
-            path: 'sample-page',
-            element: <SamplePage />
+            path: 'payments',
+            element: <PaymentPage />
         },
         {
-            path: 'shadow',
-            element: <Shadow />
+            path: 'reports',
+            element: <ReportsPage />
         },
         {
-            path: 'typography',
-            element: <Typography />
+            path: 'integrations',
+            element: <IntegrationPage />
         },
-        {
-            path: 'icons/ant',
-            element: <AntIcons />
-        }
     ]
 };
 

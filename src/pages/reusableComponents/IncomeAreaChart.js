@@ -71,12 +71,56 @@ const IncomeAreaChart = ({ slot }) => {
                 },
                 tickAmount: slot === 'month' ? 11 : 7
             },
+            chart: {
+                height: 350,
+                type: 'line',
+                zoom: {
+                  enabled: false
+                },
+                toolbar: {
+                    show: true,
+                    offsetX: 0,
+                    offsetY: 0,
+                    tools: {
+                      download: true,
+                      selection: true,
+                      zoom: true,
+                      zoomin: true,
+                      zoomout: true,
+                      pan: true,
+                      reset: true | '<img src="/static/icons/reset.png" width="20">',
+                      customIcons: []
+                    },
+                    export: {
+                      csv: {
+                        filename: undefined,
+                        columnDelimiter: ',',
+                        headerCategory: 'category',
+                        headerValue: 'value',
+                        dateFormatter(timestamp) {
+                          return new Date(timestamp).toDateString()
+                        }
+                      },
+                      svg: {
+                        filename: undefined,
+                      },
+                      png: {
+                        filename: undefined,
+                      }
+                    },
+                    autoSelected: 'zoom' 
+                  },
+            },
+            stroke: {
+                curve: 'straight'
+              },
             yaxis: {
                 labels: {
                     style: {
                         colors: [secondary]
                     }
-                }
+                },
+                categories: [1000, 2000, 3000, 4000, 5000]
             },
             grid: {
                 borderColor: line
@@ -89,24 +133,16 @@ const IncomeAreaChart = ({ slot }) => {
 
     const [series, setSeries] = useState([
         {
-            name: 'Page Views',
+            name: 'Collections',
             data: [0, 86, 28, 115, 48, 210, 136]
-        },
-        {
-            name: 'Sessions',
-            data: [0, 43, 14, 56, 24, 105, 68]
         }
     ]);
 
     useEffect(() => {
         setSeries([
             {
-                name: 'Page Views',
+                name: 'Collections',
                 data: slot === 'month' ? [76, 85, 101, 98, 87, 105, 91, 114, 94, 86, 115, 35] : [31, 40, 28, 51, 42, 109, 100]
-            },
-            {
-                name: 'Sessions',
-                data: slot === 'month' ? [110, 60, 150, 35, 60, 36, 26, 45, 65, 52, 53, 41] : [11, 32, 45, 32, 34, 52, 41]
             }
         ]);
     }, [slot]);

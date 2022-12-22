@@ -25,7 +25,7 @@ const DashboardDefault = () => {
             <Grid item xs={12} md={10} lg={10}>
                 <Grid container alignItems="center" justifyContent="space-between">
                     <Grid item>
-                        <Typography style = {{  marginBottom: 30}} variant="h5">Dashboard</Typography>
+                        <Typography style = {{  marginBottom: 30}} variant="h5">Debtors</Typography>
                         <Typography variant="h5">{ slot == 'week' ? 'This Week' : "Month" } Collections</Typography>
                     </Grid>
                     <Grid item>

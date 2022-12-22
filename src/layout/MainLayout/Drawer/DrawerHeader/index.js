@@ -2,11 +2,9 @@ import PropTypes from 'prop-types';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Stack, Chip } from '@mui/material';
-
+import { Stack, Chip, Typography } from '@mui/material';
 // project import
 import DrawerHeaderStyled from './DrawerHeaderStyled';
-import Logo from 'components/Logo';
 
 // ==============================|| DRAWER HEADER ||============================== //
 
@@ -17,13 +15,13 @@ const DrawerHeader = ({ open }) => {
         // only available in paid version
         <DrawerHeaderStyled theme={theme} open={open}>
             <Stack direction="row" spacing={1} alignItems="center">
-                <Logo />
+                <img width = {40} src = {require("../../../../assets/ics.jpeg")} />
+                <Typography style = {{  marginBottom: 0}} variant="h5">ICSSYSTEM</Typography>
                 <Chip
-                    label={process.env.REACT_APP_VERSION}
                     size="small"
                     sx={{ height: 16, '& .MuiChip-label': { fontSize: '0.625rem', py: 0.25 } }}
                     component="a"
-                    href="https://github.com/codedthemes/mantis-free-react-admin-template"
+                    href="https://github.com/ICS-Collection/NewICSSystem"
                     target="_blank"
                     clickable
                 />
